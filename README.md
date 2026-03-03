@@ -67,15 +67,19 @@ The goal of this project is to:
 AI-Career-Path-Generator/
 │
 ├── Frontend/
+
 │   ├── index.html
 │   ├── style.css
 │   └── script.js
 │
+
 ├── Backend/
+
 │   ├── server.js
 │   ├── package.json
 │   └── .env
 │
+
 └── README.md
 
 ---
