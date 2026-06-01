@@ -21,7 +21,7 @@ function App() {
     setResult("⏳ AL, is thinking...");
 
     try {
-      const res = await fetch("http://localhost:5000/api/ai", {
+      const res = await fetch("https://ai-career-path-generator-2.onrender.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
