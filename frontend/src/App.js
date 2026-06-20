@@ -18,12 +18,12 @@ function App() {
     }
 
     setLoading(true);
-    setResult("⏳ AL, is thinking...");
+    setResult("⏳ AL is thinking...");
 
-    // 💡 AUTOMATIC LINK CHECKER (Local vs Live)
+    // ✅ AUTOMATIC LINK CHECKER (FIXED: Ab live URL poora sahi endpoint pe jaayega)
     const backendUrl = window.location.hostname === "localhost"
       ? "http://localhost:5000/api/ai"
-      : "https://onrender.com";
+      : "https://ai-career-path-generator-2.onrender.com/api/ai";
 
     try {
       const res = await fetch(backendUrl, {
@@ -45,7 +45,7 @@ function App() {
       if (data.success) {
         setResult(data.reply);
       } else {
-        setResult("❌ AI error");
+        setResult("❌ AI error: " + (data.error || "Unknown error"));
       }
     } catch (error) {
       console.error("Fetch Error:", error);
@@ -126,7 +126,7 @@ function App() {
         {loading ? "Generating..." : "Generate Path"}
       </button>
 
-      <p className="result">{result}</p>
+      <p className="result" style={{ whiteSpace: "pre-wrap" }}>{result}</p>
     </div>
   );
 }
