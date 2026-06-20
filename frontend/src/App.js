@@ -20,9 +20,13 @@ function App() {
     setLoading(true);
     setResult("⏳ AL, is thinking...");
 
+    // 💡 AUTOMATIC LINK CHECKER (Local vs Live)
+    const backendUrl = window.location.hostname === "localhost"
+      ? "http://localhost:5000/api/ai"
+      : "https://onrender.com";
+
     try {
-      // ✅ YAHAN ROUTE FIXED KAR DIYA HAI (/api/ai JOD DIYA HAI)
-      const res = await fetch("https://onrender.com", {
+      const res = await fetch(backendUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -44,6 +48,7 @@ function App() {
         setResult("❌ AI error");
       }
     } catch (error) {
+      console.error("Fetch Error:", error);
       setResult("❌ Backend not reachable");
     }
 
