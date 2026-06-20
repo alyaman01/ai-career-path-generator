@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [goal,setgoal] = useState("");
+  const [goal, setgoal] = useState("");
   const [level, setLevel] = useState("");
   const [frontend, setFrontend] = useState("");
   const [backend, setBackend] = useState("");
@@ -21,7 +21,8 @@ function App() {
     setResult("⏳ AL, is thinking...");
 
     try {
-      const res = await fetch("https://ai-career-path-generator-2.onrender.com", {
+      // ✅ YAHAN ROUTE FIXED KAR DIYA HAI (/api/ai JOD DIYA HAI)
+      const res = await fetch("https://onrender.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -54,7 +55,6 @@ function App() {
       <h1 style={{ width: "100%", textAlign: "center" }}>AL, Career Path Generator 🚀</h1>
 
       {/* DEFAULT / LEVEL */}
-
       <select
         className="input"
         value={goal}
